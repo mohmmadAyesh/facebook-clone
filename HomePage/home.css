@@ -1797,6 +1797,7 @@ header .wrapper .contacts{
 }
 .contacts .contact{
     padding-top: 10px;
+    height:85vh;
     position: relative;
 }
 .contact .popUp{
