@@ -191,7 +191,7 @@ const cardsFirstScroll=[
     },
     {
         title:'Messanger Kids',
-        image:'messangerKid.png'
+        image:'messangerKids.png'
     },
     {
         title:'Play Games',
