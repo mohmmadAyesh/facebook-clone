@@ -1211,7 +1211,6 @@ header .wrapper .posts .posting .options ul li span{
     font-weight: 600;
 }
 .posts .post{
-    height:1031px;
     background: #fff;
     width:100%;
     box-shadow: 0 0 1px rgba(0,0,0,0.4);
@@ -1220,7 +1219,7 @@ header .wrapper .posts .posting .options ul li span{
     margin-bottom: 15px;
 }
 .posts .post1{
-    height:900px;
+    min-height:900px;
 }
 .posts .post2{
     height:967px;
