@@ -137,6 +137,7 @@ header .wrapper{
     height:94vh;
     background: #F0F2F5;
     position: relative;
+    transform: translateY(30vh);
 }
 .wrapper .profile-container{
     width:360px;
@@ -1218,8 +1219,8 @@ header .wrapper .posts .posting .options ul li span{
     position: relative;
     margin-bottom: 15px;
 }
-.posts .post1{
-    min-height:900px;
+.posts .post1 .wrapper-post{
+    height:840px;
 }
 .posts .post2{
     height:967px;
