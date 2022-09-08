@@ -134,10 +134,10 @@ header .wrapper{
     display: flex;
     align-items:flex-start;
     justify-content: space-between;
-    height:94vh;
+    height:85vh;
     background: #F0F2F5;
     position: relative;
-    transform: translateY(30vh);
+    transform: translateY(60vh);
 }
 .wrapper .profile-container{
     width:360px;
@@ -959,6 +959,7 @@ header .wrapper .posts{
     width:680px;
     z-index: 100;
     padding-top:10vh;
+    padding-bottom: 6vh;
     margin-bottom: 15px;
     overflow-y: scroll;
     overflow-x:hidden;
