@@ -353,6 +353,7 @@ header .wrapper{
     background: #F2F3F5;
     padding-left: 15px;
 }
+
 .chat-container  .write-container .inputField img{
     position: absolute;
     top:50%;
@@ -361,6 +362,7 @@ header .wrapper{
     width:20px;
     height:20px;
 }
+
 header .wrapper .icon-container{
     display: flex;
     flex-direction: column;
