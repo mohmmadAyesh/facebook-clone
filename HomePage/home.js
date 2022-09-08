@@ -379,38 +379,95 @@ const notificationBtn=document.querySelector('nav .messangerBar .notification');
 const notificationContainer=document.querySelector('.wrapper .notification-container');
 const collectionContainer=document.querySelector('.wrapper .collection-container');
 const collectionBtn=document.querySelector('nav .messangerBar .collection');
-
+const profileContainer=document.querySelector('.wrapper .profile-container');
+const profileBtn=document.querySelector('nav .messangerBar img');
 messangerBtn.addEventListener('click',()=>{
     toggle(chatsContainer);
+    notificationContainer.classList.remove('active');
+    collectionContainer.classList.remove('active');
+    profileContainer.classList.remove('active');
+    notificationBtn.classList.remove('active');
+    collectionBtn.classList.remove('active');
+    notificationBtn.querySelector('svg').setAttribute('fill','#050505');
+    collectionBtn.querySelector('svg').setAttribute('fill','#050505');
     if(messangerBtn.classList.contains('active')){
         messangerBtn.querySelector('svg').setAttribute('fill','#050505');
     }else{
     messangerBtn.querySelector('svg').setAttribute('fill','#1876f2');
     }
     toggle(messangerBtn);
+    // checkToggle(collectionBtn,notificationBtn);
+});
+profileBtn.addEventListener('click',()=>{
+    notificationContainer.classList.remove('active');
+    collectionContainer.classList.remove('active');
+    chatsContainer.classList.remove('active');
+    notificationBtn.classList.remove('active');
+    collectionBtn.classList.remove('active');
+    messangerBtn.classList.remove('active');
+    notificationBtn.querySelector('svg').setAttribute('fill','#050505');
+    collectionBtn.querySelector('svg').setAttribute('fill','#050505');
+    messangerBtn.querySelector('svg').setAttribute('fill','#050505');
+    toggle(profileContainer);
+    console.log('samer');
 })
+function check(btn){
+    if(btn.classList.contains('active')){
+        btn.querySelector('svg').setAttribute('fill','#050505');
+    }else{
+    btn.querySelector('svg').setAttribute('fill','#1876f2');
+    }
+}
+function checkToggle(btn1,btn2){
+    if(btn1.classList.contains('active')){
+        toggle(btn1);
+    }
+    if(btn2.classList.contains('active')){
+        toggle(btn2);
+    }
+}
 function toggle(list){
     list.classList.toggle('active');
 }
 //###########################################
 notificationBtn.addEventListener('click',()=>{
     toggle(notificationContainer);
+   chatsContainer.classList.remove('active');
+    collectionContainer.classList.remove('active');
+    profileContainer.classList.remove('active');
+    // check(messangerBtn);
+    messangerBtn.classList.remove('active');
+    collectionBtn.classList.remove('active');
+    messangerBtn.querySelector('svg').setAttribute('fill','#050505');
+    collectionBtn.querySelector('svg').setAttribute('fill','#050505');
+    notificationBtn.querySelector('svg').setAttribute('fill','#1876f2');
     if(notificationBtn.classList.contains('active')){
         notificationBtn.querySelector('svg').setAttribute('fill','#050505');
     }else{
     notificationBtn.querySelector('svg').setAttribute('fill','#1876f2');
     }
     toggle(notificationBtn);
+
+    // checkToggle(collectionBtn,messangerBtn);
 })
 //########################
 collectionBtn.addEventListener('click',()=>{
     toggle(collectionContainer);
+    notificationContainer.classList.remove('active');
+    profileContainer.classList.remove('active');
+    chatsContainer.classList.remove('active');
+    notificationBtn.classList.remove('active');
+    messangerBtn.classList.remove('active');
+    messangerBtn.querySelector('svg').setAttribute('fill','#050505');
+    notificationBtn.querySelector('svg').setAttribute('fill','#050505');
+    collectionBtn.querySelector('svg').setAttribute('fill','#1876f2');
     if(collectionBtn.classList.contains('active')){
         collectionBtn.querySelector('svg').setAttribute('fill','#050505');
     }else{
     collectionBtn.querySelector('svg').setAttribute('fill','#1876f2');
     }
     toggle(collectionBtn);
+    // checkToggle(notificationBtn,messangerBtn);
 })
 //end of messanger bar function code
 // notification guys generator
@@ -844,6 +901,7 @@ popUpdotsBtn.addEventListener('click',()=>{
 //end of pop code
 // code of chat container
 function generatechatContainerContent(title,image){
+    toggle(chatsContainer);
     chatcontainerfinal.innerHTML=`
     <div class="title-container">
                     <div class="img-container">
@@ -858,7 +916,7 @@ function generatechatContainerContent(title,image){
                         <svg role="presentation" width="26px" height="26px" viewBox="-3 -5 30 30"><path d="M19.492 4.112a.972.972 0 00-1.01.063l-3.052 2.12a.998.998 0 00-.43.822v5.766a1 1 0 00.43.823l3.051 2.12a.978.978 0 001.011.063.936.936 0 00.508-.829V4.94a.936.936 0 00-.508-.828zM10.996 18A3.008 3.008 0 0014 14.996V5.004A3.008 3.008 0 0010.996 2H3.004A3.008 3.008 0 000 5.004v9.992A3.008 3.008 0 003.004 18h7.992z" fill="var(--always-white)"></path><circle cx="24" cy="10" r="2" class="tejsmfk1"></circle></svg>
 
                         <svg fill='#000' width="26px" height="26px" viewBox="-4 -4 24 24"><line x1="2" x2="14" y1="8" y2="8" stroke-linecap="round" stroke-width="2" stroke="var(--always-white)"></line></svg>
-                        <span class="close">&times;</span>
+                        <span  onclick="closeChat()" class="close">&times;</span>
                     </div>
                 </div>
                 <div class="textarea-container"></div>
@@ -875,16 +933,61 @@ function generatechatContainerContent(title,image){
                 </div>
     `
 }
+
+
 const closeContainerClose=chatcontainerfinal.querySelector('.title-container .svgs-container .close');
 const containers=chatcontainerfinal.querySelector('.title-container');
 document.addEventListener('click',(e)=>{
     if(e.target==contacts){
-        click();
+        closeChat();
     }
 })
-function click(){
+
+
+function closeChat(){
+    console.log("click me");
     console.log(closeContainerClose);
     chatcontainerfinal.classList.remove('active');
     chatcontainerfinal.replaceChildren('');
 }
 //end of chat container code
+// profile container
+const listOfprofileItems=[
+    {
+        title:'Settings & privacy',
+        icon:'<i data-visualcompletion="css-img" class="gneimcpu b0w474w7" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/xjV4j8zXH-H.png&quot;); background-position: 0px -126px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>'
+    },
+    {
+        title:'Help & support',
+        icon:'<i data-visualcompletion="css-img" class="gneimcpu b0w474w7" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yM/r/11hYwxNrWKf.png&quot;); background-position: 0px -314px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>'
+    },
+    {
+        title:'Display & accessibility',
+        icon:'<i data-visualcompletion="css-img" class="gneimcpu b0w474w7" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yM/r/11hYwxNrWKf.png&quot;); background-position: 0px -230px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>'
+    },
+    {
+        title:'Give feedback',
+        icon:'<i data-visualcompletion="css-img" class="gneimcpu b0w474w7" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yh/r/z7oPL_uRLiD.png&quot;); background-position: 0px -50px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>'
+    },
+    {
+        title:'Log Out',
+        icon:'<i data-visualcompletion="css-img" class="gneimcpu b0w474w7" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yh/r/z7oPL_uRLiD.png&quot;); background-position: 0px -71px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>'
+    }
+]
+const ul=document.querySelector('.wrapper .profile-container ul');
+function generateProfileContainer(ul,list){
+    ul.replaceChildren('');
+    for(obj of list){
+        const li=`<li>
+        <div class="i-container">
+            ${obj.icon}
+        </div>
+        <span class="title">${obj.title}</span>
+        <i data-visualcompletion="css-img" class="gneimcpu oee9glnz" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/xjV4j8zXH-H.png&quot;); background-position: -108px -26px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block;"></i>
+    </li>
+        `
+        ul.insertAdjacentHTML('beforeend',li);
+    }
+}
+generateProfileContainer(ul,listOfprofileItems);
+//end of profile container

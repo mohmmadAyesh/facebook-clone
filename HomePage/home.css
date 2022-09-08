@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+body{
+    background: #eee;
+}
 header{
     height:200vh;
     background:#eee;
@@ -124,6 +127,7 @@ header nav .messangerBar img{
     height:40px;
     border-radius: 50%;
     margin-left: 5px;
+    cursor: pointer;
 }
 header .wrapper{
     display: flex;
@@ -133,6 +137,118 @@ header .wrapper{
     background: #F0F2F5;
     position: relative;
 }
+.wrapper .profile-container{
+    width:360px;
+    height:449px;
+    background: #fff;
+    position: fixed;
+    top:6vh;
+    right:15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+}
+.wrapper .profile-container.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+.profile-container .profile-card{
+    width:328px;
+    height:112px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    margin: 6px 16px 16px;
+}
+.profile-container .profile-card .profile-name{
+    width:100%;
+    height:60px;
+    padding:8px;
+    display: flex;
+    align-items: center;
+}
+.profile-container .profile-card .profile-name img{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.profile-container .profile-card .profile-name .title{
+    font-size: 17px;
+    color:#050505;
+    font-weight: 600;
+}
+.profile-container .profile-card .line{
+    width:95%;
+    margin: auto;
+    background: #ccc;
+    height:1px;
+}
+.profile-container .profile-card .see{
+    font-size: 15px;
+    color:#1876f2;
+    padding:8px;
+    padding-left: 10px;
+    margin-top: 4px;
+    font-weight: 600;
+}
+.profile-container .profile-card .see:hover{
+    text-decoration: underline;
+}
+.profile-container .list{
+    padding-top: 5px;
+}
+.profile-container .list li{
+    width:100%;
+    height:52px;
+    display: flex;
+    align-items: center;
+    padding:0 16px;
+    display: flex;
+    align-items:center;
+}
+.profile-container .list li .title{
+    font-size: 15px;
+    font-weight: 600;
+    color:#050505;
+    width:260px;
+}
+.profile-container .list li .i-container{
+    width:36px;
+    height:36px;
+    background: #e4e6eb;
+    border-radius: 50%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.profile-container .endTitle{
+    width:100%;
+    height:57px;
+    padding:16px;
+}
+.profile-container .endTitle ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-decoration: none;
+}
+.profile-container .endTitle ul li a,
+.profile-container .endTitle ul li{
+    text-decoration: none;
+    color:#65676b;
+    font-size: 13px;
+}
+.profile-container .endTitle ul li{
+    margin-bottom: 2px;
+}
+.profile-container .endTitle ul li a:hover{
+    text-decoration: underline;
+}
+
 .wrapper .chat-container{
     width:328px;
     height:394px;
@@ -250,6 +366,7 @@ header .wrapper .icon-container{
     padding-top: 7vh;
     padding-left: 1vw;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 header .wrapper .icon-container li{
@@ -644,6 +761,14 @@ header .wrapper .messanger-contacts.active{
     height:90%;
     background: #fff;
     overflow-y: scroll;
+}
+.collection-container .wrapper-container .menu-container::-webkit-scrollbar{
+    background: #eee;
+    width:8px;
+}
+.collection-container .wrapper-container .menu-container::-webkit-scrollbar-thumb{
+    background: #c6c7bf;
+    border-radius: 10px;
 }
 .collection-container .wrapper-container .menu-container,
 .collection-container .wrapper-container .post-container{
@@ -1083,6 +1208,175 @@ header .wrapper .posts .posting .options ul li span{
     box-shadow: 0 0 1px rgba(0,0,0,0.4);
     border-radius: 10px;
     position: relative;
+    margin-bottom: 15px;
+}
+.posts .post2{
+    height:967px;
+}
+.posts .post2 .suggested{
+    width:100%;
+    padding:16px; 
+}
+.posts .post2 .suggested .title{
+    font-size: 15px;
+    color:#65676b;
+    margin-bottom: 16px;
+}
+.posts .post2 .suggested .line{
+    width:100%;
+    height:1px;
+    background: #888;
+    margin-top: 16px;
+}
+.posts .post2 .title-container .img-container{
+    border:2px solid #216fd8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding: 2px;
+    margin-right: 5px;
+}
+.posts .post2 .title-container .text-container .title{
+    margin-bottom: 5px;
+}
+.posts .post2 .title-container .text-container span{
+    font-size: 15px;
+    color:#050505;
+    font-weight: 600;
+}
+.posts .post2 .title-container .text-container a{
+    font-size: 15px;
+    color: #216fd8;
+    text-decoration: none;
+    font-weight: 600;
+}
+.posts .post2 .title-container .text-container a:hover{
+    text-decoration: underline;
+}
+.posts .post2 .title-container .text-container .desc{
+    font-size: 13px;
+    color:#65676b;
+}
+.posts .post2 .desc-container{
+    padding:4px 16px 16px;
+}
+.posts .post2 .img-post-container{
+    width:100%;
+    height:712px;
+    background: #c6c7bf;
+    display: flex;
+    justify-content: center;
+}
+.posts .post2 .post-inform{
+    width:100%;
+    height:43px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.posts .post2 .post-inform .img-container{
+    width:36px;
+    display: flex;
+    height:18px;
+}
+.posts .post2 .post-inform .img-container img{
+    width:18px;
+    height:18px;
+
+}
+.posts .post2 .post-inform .img-container img:first-child{
+    z-index: 100;
+}
+.posts .post2 .post-inform .img-container img:last-child{
+    transform: translateX(-2px);
+}
+.posts .post2 .post-inform span{
+    font-size: 15px;
+    color:#65676b;
+    padding-left: 6px;
+}
+.posts .post2 .post-inform .who{
+    margin-right: 50px;
+}
+.posts .post2 .share-comment-like{
+    width:100%;
+    height:44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.posts .post2 .share-comment-like i,
+.posts .post3 .share-comment-like i{
+    margin-right: 10px;
+}
+.posts .post2 .share-comment-like span,
+.posts .post3 .share-comment-like span{
+    font-size: 15px;
+    color:#65676b;
+    font-weight: 600;
+}
+.posts .post3{
+    height:906px;
+}
+.posts .post3 .desc-container{
+    width:100%;
+    height:31px;
+    padding:4px 16px 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+.posts .post3 > .img-container{
+    background: #E7A547;
+    width:100%;
+    height:720px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.posts .post3 > .img-container img{
+    object-fit: cover;
+    width:500px;
+    height:888px;
+}
+.posts .post3 .post-inform{
+    width:100%;
+    height:43px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.posts .post3 .post-inform .img-container{
+    width:36px;
+    display: flex;
+    height:18px;
+    align-items: center;
+    margin-right: 25px;
+}
+.posts .post3 .post-inform .img-container img{
+    width:18px;
+    height:18px;
+}
+.posts .post3 .post-inform > span{
+    font-size: 15px;
+    color:#65676b;
+    padding-left: 6px;
+}
+.posts .post3 .post-inform .who{
+    margin-right: 240px;
+}
+.posts .post3 .line{
+    background: #ccc;
+    height:1px;
+    width:95%;
+    margin: auto;
+}
+.posts .post3 .like-comment-share{
+    width:100%;
+    height:52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 .post .popUpdots{
     background: #fff;
@@ -1138,10 +1432,17 @@ header .wrapper .posts .posting .options ul li span{
     align-items: center;
     justify-content: space-between;
 }
+.posts .post2 .title-container .title-left{
+    justify-content: flex-start;
+}
 .posts .post .title-container img{
     width:36px;
     height:36px;
     border-radius: 50%;
+}
+.posts .post2 .title-container .img-container img{
+    width:36px;
+    height:36px;
 }
 .title-left .text-container{
     margin-left: 10px;
@@ -1535,7 +1836,6 @@ header .wrapper .contacts{
     padding:8px;
     cursor: pointer;
 }
-
 .popUp .list li i{
     margin-right: 15px;
 }
@@ -1648,7 +1948,7 @@ header .wrapper .contacts{
     pointer-events: auto;
 }
 .contact .card:hover{
-    background: #F0F2F5;
+    background: #E4E6EB;
 }
 .contact .card .img-container{
     width:36px;
